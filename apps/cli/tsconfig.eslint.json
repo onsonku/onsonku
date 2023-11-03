@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src",
+    "template",
+    "tsup.config.ts",
+    "prettier.config.mjs"
+  ]
+}

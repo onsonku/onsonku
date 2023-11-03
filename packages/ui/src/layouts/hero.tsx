@@ -46,7 +46,7 @@ function OssonDefaultHero({
             <div className="py-8 px-4 mx-auto max-w-screen-xl space-y-4 text-center lg:py-16 lg:px-12">
                 <TypographyH1>{title}</TypographyH1>
                 <TypographyLead>{subtitle}</TypographyLead>
-                <ul className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+                <ul className="flex flex-row justify-center items-center gap-2 mb-8 lg:mb-16 sm:justify-center sm:space-y-0 sm:space-x-4">
                     {buttons.map((button) => (
                         <li>
                             <Link

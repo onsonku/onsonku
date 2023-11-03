@@ -5,10 +5,10 @@ import { useSelectedLayoutSegment } from "next/navigation"
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
+import { MenuIcon } from "lucide-react"
 import { MainNavItem, SiteConfig } from "../types"
 import { Icons } from "./icons"
 import { MobileNav } from "./mobile-nav"
-
 interface MainNavProps {
     items?: MainNavItem[]
     children?: React.ReactNode
@@ -20,7 +20,7 @@ export function MainNav({ items, children, siteConfig }: MainNavProps) {
     const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false)
 
     return (
-        <div className="flex gap-6 md:gap-10">
+        <div className="flex w-full gap-6 md:gap-10">
             <Link href="/" className="hidden items-center space-x-2 md:flex">
                 {/* <SiteLogo /> */}
                 <span className="hidden font-bold sm:inline-block">
@@ -46,13 +46,16 @@ export function MainNav({ items, children, siteConfig }: MainNavProps) {
                     ))}
                 </nav>
             ) : null}
-            <button
-                className="flex items-center space-x-2 md:hidden"
-                onClick={() => setShowMobileMenu(!showMobileMenu)}
-            >
-                {showMobileMenu ? <Icons.close /> : <Icons.logo />}
-                <span className="font-bold">Menu</span>
-            </button>
+            <div className="flex w-full gap-6 justify-end md-hidden">
+                <button
+                    className="flex items-center self-end space-x-2 md:hidden"
+                    onClick={() => setShowMobileMenu(!showMobileMenu)}
+                >
+                    {showMobileMenu ? <Icons.close /> : <MenuIcon />}
+                    {/* <span className="font-bold">Menu</span> */}
+                </button>
+            </div>
+
             {showMobileMenu && items && (
                 <MobileNav siteConfig={siteConfig} items={items}>
                     {children}
